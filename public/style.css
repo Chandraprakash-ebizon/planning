@@ -251,8 +251,8 @@ label{
   }
   
   .robot-icon img {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
   }
   
   .input-form {
@@ -303,3 +303,11 @@ tr:nth-child(odd) {
 tr:nth-child(even) {
     background-color: #d1daeb;
   }
+
+.cost-link h5{
+  display: inline-block;
+  max-width: 100%;
+}
+.button-container.first-section {
+  float: right;
+}

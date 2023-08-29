@@ -19,6 +19,17 @@ import Sow from "./Sow";
 import TimeLine from "./TimeLine";
 import Gpt3Example from "./Gpt3Example";
 import Plan from "./Plan";
+import BillOfMaterials from "./BillOfMaterials";
+import ResourcePlanning from "./ResourcePlanning";
+import CapacityPlanning from "./CapacityPlanning";
+import Tl from "./Tl";
+import SowCost from "./SowCost";
+import OverviewStatus from "./OverviewStatus";
+import ProjObjectives from "./ProjObjectives";
+import RolesResp from "./RolesResp";
+import SolArch from "./SolArch";
+import SolOver from "./SolOver";
+import ArchDec from "./ArchDec";
 
 function App() {
   return (
@@ -28,6 +39,20 @@ function App() {
       <div className="content">
         <Routes>
           <Route path="/reqcollection" element={<ReqCollection />} />
+          <Route path="/overviewstatus" element={<OverviewStatus />} />
+          <Route path="/projobjectives" element={<ProjObjectives />} />
+          <Route path="/rolesresp" element={<RolesResp />} />
+          <Route path="/solarch" element={<SolArch />} />
+          <Route path="/solover" element={<SolOver />} />
+          <Route path="/archdec" element={<ArchDec />} />
+
+
+          <Route path="/billofmaterials" element={<BillOfMaterials />} />
+          <Route path="/resourceplanning" element={<ResourcePlanning />} />
+          <Route path="/capacityplanning" element={<CapacityPlanning />} />
+          <Route path="/tl" element={<Tl />} />
+          <Route path="/sowcost" element={<SowCost />} />
+
           <Route path="/landingzone" element={<LandingZone />} />
           <Route path="/cicd" element={<CiCd />} />
           <Route path="/documentation" element={<Documentation />} />
@@ -41,14 +66,9 @@ function App() {
           <Route path="/governance" element={<Governance />} />
           <Route path="/pcicd" element={<PciCd />} />
           <Route path="/notification" element={<Notification />} />
-          <Route path="/sow" element={<Sow />} />
+          {/* <Route path="/sow" element={<Sow />} />
           <Route path="/timeline" element={<TimeLine />} />
-           <Route path="/plan" element={<Plan />} />
-          {/*<Route path="/clouddesign" element={<CloudDesign />} />
-          <Route path="/dns" element={<Dns />} />
-          <Route path="/cidr" element={<Cidr />} />
-          <Route path="/ipsecvpn" element={<IpsecVpn />} />
-          <Route path="/fastconnect" element={<FastConnect />} /> */}
+           <Route path="/plan" element={<Plan />} /> */}
         </Routes>
         <Gpt3Example/>
       </div>

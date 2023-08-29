@@ -1,33 +1,84 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link , useLocation } from "react-router-dom";
 
 
 function Header(){
 
+  const [activeList, setActiveList] = useState(null);
+
+  const toggleList = (listId) => {
+    setActiveList(activeList === listId ? null : listId);
+  };
+
   const location = useLocation();
 
     return <header>
-       <div className="logo">
-         <img className="left-img" src="https://axeyhon9m8ky.objectstorage.ap-singapore-1.oci.customer-oci.com/n/axeyhon9m8ky/b/UI_Path/o/Picture2.png" alt="left"/>
-         <img className="right-img" src="https://axeyhon9m8ky.objectstorage.ap-singapore-1.oci.customer-oci.com/n/axeyhon9m8ky/b/UI_Path/o/new_logo.png" alt="right"/>
-        </div>
+      <div className="logo">
+        <img className="left-img" src="https://axeyhon9m8ky.objectstorage.ap-singapore-1.oci.customer-oci.com/n/axeyhon9m8ky/b/UI_Path/o/Picture2.png" alt="left"/>
+        <img className="right-img" src="https://axeyhon9m8ky.objectstorage.ap-singapore-1.oci.customer-oci.com/n/axeyhon9m8ky/b/UI_Path/o/new_logo.png" alt="right"/>
+      </div>
 
       <div className="nav-container">
         <nav className="navbar">
           <ul className="nav-list">
+
+          <li className="nav-item" onClick={() => toggleList(1)} style={{color: '#003DA4', cursor: "pointer",}}>Requirement Collection Planning</li>
+          {activeList === 1 && (
+          <ul style={{listStyle: 'none', marginLeft: '-5%'}}>
             <li className={`nav-item ${location.pathname === "/reqcollection" ? "active" : ""}`}>
-              <Link to="/reqcollection">Requirement Collection</Link>
+              <Link to="/reqcollection">Requirements</Link>
             </li>
-             <li className={`nav-item ${location.pathname === "/landingzone" ? "active" : ""}`}>
+            <li className={`nav-item ${location.pathname === "/overviewstatus" ? "active" : ""}`}>
+              <Link to="/overviewstatus">Project Overview and Status</Link>
+            </li>
+            <li className={`nav-item ${location.pathname === "/projobjectives" ? "active" : ""}`}>
+              <Link to="/projobjectives">Project Objectives</Link>
+            </li>
+            <li className={`nav-item ${location.pathname === "/rolesresp" ? "active" : ""}`}>
+              <Link to="/rolesresp">Project Roles and Responsibilities</Link>
+            </li>
+            <li className={`nav-item ${location.pathname === "/SolArch" ? "active" : ""}`}>
+              <Link to="/SolArch">Solution Architecture Assumptions</Link>
+            </li>
+            <li className={`nav-item ${location.pathname === "/SolOver" ? "active" : ""}`}>
+              <Link to="/SolOver">Solution Overview</Link>
+            </li>
+            <li className={`nav-item ${location.pathname === "/ArchDec" ? "active" : ""}`}>
+              <Link to="/ArchDec">Architecture Decision</Link>
+            </li>
+            </ul>
+            )}
+
+            <li className={`nav-item ${location.pathname === "/billofmaterials" ? "active" : ""}`}>
+              <Link to="/billofmaterials">Bill of Materials</Link>
+            </li>
+            <li className={`nav-item ${location.pathname === "/resourceplanning" ? "active" : ""}`}>
+              <Link to="/resourceplanning">Resource Planning</Link>
+            </li>
+            <li className={`nav-item ${location.pathname === "/capacityplanning" ? "active" : ""}`}>
+              <Link to="/capacityplanning">Capacity Planning</Link>
+            </li>
+            <li className={`nav-item ${location.pathname === "/tl" ? "active" : ""}`}>
+              <Link to="/tl">Timeline</Link>
+            </li>
+            <li className={`nav-item ${location.pathname === "/sowcost" ? "active" : ""}`}>
+              <Link to="/sowcost">SOW Cost</Link>
+            </li>
+
+
+            <li className={`nav-item ${location.pathname === "/landingzone" ? "active" : ""}`}>
               <Link to="/landingzone">Landing Zone</Link>
             </li>
-           <li className={`nav-item ${location.pathname === "/cicd" ? "active" : ""}`}>
+            <li className={`nav-item ${location.pathname === "/cicd" ? "active" : ""}`}>
               <Link to="/cicd">CI/CD</Link>
             </li>
-             <li className={`nav-item ${location.pathname === "/documentation" ? "active" : ""}`}>
+            <li className={`nav-item ${location.pathname === "/documentation" ? "active" : ""}`}>
               <Link to="/documentation">Documentation</Link>
             </li>
-            <li className="nav-item" style={{color: '#003DA4'}}>Project Plan</li>
+
+
+            <li className="nav-item"  onClick={() => toggleList(2)} style={{color: '#003DA4', cursor: "pointer"}}>Project Plan</li>
+            {activeList === 2 && (
             <ul>
               <li className={`nav-item ${location.pathname === "/design" ? "active" : ""}`} style={{listStyleType: 'none' }}>
               <Link to="/design">Design</Link>
@@ -60,7 +111,8 @@ function Header(){
               <Link to="/notification">Notification</Link>
               </li>
             </ul>
-            <li className={`nav-item ${location.pathname === "/sow" ? "active" : ""}`}>
+            )}
+            {/* <li className={`nav-item ${location.pathname === "/sow" ? "active" : ""}`}>
               <Link to="/sow">SOW Assumptions and Deliverables</Link>
             </li>
            <li className={`nav-item ${location.pathname === "/timeline" ? "active" : ""}`}>
@@ -68,15 +120,6 @@ function Header(){
             </li>
              <li className={`nav-item ${location.pathname === "/plan" ? "active" : ""}`}>
               <Link to="/plan">Resource Timeline Plan</Link>
-            </li>
-            {/*<li className={`nav-item ${location.pathname === "/cidr" ? "active" : ""}`}>
-              <Link to="/cidr">CIDR</Link>
-            </li>
-              <li className={`nav-item ${location.pathname === "/ipsecvpn" ? "active" : ""}`}>
-              <Link to="/ipsecvpn">IPSec VPN</Link>
-            </li>
-            <li className={`nav-item ${location.pathname === "/fastconnect" ? "active" : ""}`}>
-              <Link to="/fastconnect">Fast Connect</Link>
             </li> */}
           </ul>
         </nav>

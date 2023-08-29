@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import AttachmentButton from "./AttachmentButton";
 
 function LandingZone(){
 
@@ -89,7 +90,7 @@ function LandingZone(){
             >
             <TextField className="txt" fullWidth label="Enter your answer" id="fullWidth" />
             </Box>
-            <div className="button-container">
+            <div className={`button-container ${currentSectionIndex === 0 ? 'first-section' : ''}`} style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
             {currentSectionIndex > 0 && (
               <button className="btn prev" type="button" onClick={handlePrevClick}>PREVIOUS</button>
             )}
@@ -97,7 +98,10 @@ function LandingZone(){
               <button className="btn nxt" type="button" onClick={handleNextClick}>NEXT</button>
             )}
             {isLastSection && (
-              <input className="btn sum" type="submit" value="SUBMIT" style={{marginLeft: '22%'}} />
+              <>
+                  <AttachmentButton/>
+              <input className="btn sum" type="submit" value="SUBMIT" style={{float: 'right'}}  />
+              </>
             )}
           </div>
           </div>

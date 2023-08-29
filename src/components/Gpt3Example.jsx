@@ -49,7 +49,7 @@ function Gpt3Example() {
     <div className="chatbot-container">
       <div className="chatbot">
       <div className="robot-icon" onClick={toggleInput}>
-          <img src="https://axeyhon9m8ky.objectstorage.ap-singapore-1.oci.customer-oci.com/n/axeyhon9m8ky/b/UI_Path/o/robot%20icon.png" alt="Robot Icon" />
+          <img src="https://axeyhon9m8ky.objectstorage.ap-singapore-1.oci.customer-oci.com/n/axeyhon9m8ky/b/UI_Path/o/chatbot.png" alt="Robot Icon" />
         </div>
         {showInput && (
           <form className="input-form" onSubmit={handleSubmit}>
